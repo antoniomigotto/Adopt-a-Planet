@@ -1,13 +1,15 @@
 {% extends 'base.html' %}
-
-{% block title %}
-Dashboard
-{% endblock %}
-
-{% block body %}
-<div id="header">
-	<span><a href="{{ url_for('login') }}">Login / Register</a></span>
-</div>
-<div id="planets">
-</div>
-{% endblock %}
+ 
+ {% block title %}
+ Dashboard
+ {% endblock %}
+ 
+ {% block body %}
+ <div id="header">
+	 <span>Adopt a Planet</span>
+	 <span id="description"></span>
+	 <span><a href="{{ url_for('login') }}">Login / Register</a></span>
+ </div>
+ <div id="planets">
+ </div>
+ {% endblock %}

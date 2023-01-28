@@ -5,11 +5,12 @@ Login
 {% endblock %}
 
 {% block body %}
-<form action="login_submit" method="set">
+<form action="/login_submit" method="post">
 	<label for="username">Username</label>
-	<input type="text" name="username" id="username" value="" />
+	<input type="text" name="username" id="username" value="" required/>
 	<label for="password">Password</label>
-	<input type="password" name="password" id="password" value="" />
-	<input type="submit" name="submit" id="submit" value="">
+	<input type="password" name="password" id="password" value="" required/>
+	<input type="submit" name="account_type" value="Login" />
+	<input type="submit" name="account_type" value="Register" />
 </form>
 {% endblock %}

@@ -1,15 +1,27 @@
 {% extends 'base.html' %}
- 
- {% block title %}
- Dashboard
- {% endblock %}
- 
- {% block body %}
- <div id="header">
-	 <span>Adopt a Planet</span>
-	 <span id="description"></span>
-	 <span><a href="{{ url_for('login') }}">Login / Register</a></span>
- </div>
- <div id="planets">
- </div>
- {% endblock %}
+
+{%  block head %}
+
+    <div class = "header">
+        <h1>Adopt An ExtraTerrestrial Planet Today!</h1>
+    </div>
+{% endblock %}
+
+
+
+{%  block body %}
+
+    <div class = "register">
+    <a href = "{{ url_for('login') }}">
+        <button>Start Your Journey</button>
+    </a>
+    </div>
+
+
+<div class = "images">
+        <img src="../static/saturn_r.png">
+
+    </div>
+
+
+{% endblock %}

@@ -25,7 +25,15 @@ body {
   background-color: rebeccapurple;
 }
 
+.username {
+    margin-left: 100px;
+    margin-top: 10px;
+}
 
+.password {
+    margin-left: 100px;
+    margin-top: 20px;
+}
 
 .header {
     padding-left: 9.5em;
@@ -40,6 +48,21 @@ body {
     margin-top: 0px;
 }
 
+.logpage {
+    padding-left: 5.2em;
+    display: flex;
+    align-items: center;
+    color: ghostwhite;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    padding-top: 0em;
+    background-color: black;
+    font-style: initial;
+    margin-top: 0px;
+    padding-bottom: 0em;
+
+}
+
 .images img {
     width: 200px;
     margin-left: 0px;
@@ -47,3 +70,9 @@ body {
     display: flex;
     align-items: center;
 }
+
+.logbutton {
+    margin-left: 100px;
+    margin-top: 20px;
+}
+

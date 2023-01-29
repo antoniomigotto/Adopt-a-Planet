@@ -1,41 +1,40 @@
-{% extends 'base.html' %} {% block head %}
-<div class="logpage">
+{% extends 'base.html' %} {% include 'header.html' %}{% block body %}
+<div id="login-page">
   <h1>Login</h1>
+  <form action="/login_submit" method="post">
+    <div class="username">
+      <label for="username" style="font-size: 25px">Username</label>
+      <input type="text" name="username" id="username" value="" required />
+    </div>
+    <div class="password">
+      <label for="password" style="font-size: 25px">Password</label>
+      <input type="password" name="password" id="password" value="" required />
+    </div>
+    <div class="logbutton">
+      <input
+        type="submit"
+        name="account_type"
+        value="Login"
+        style="
+          font-family: 'Times New Roman';
+          font-size: 18px;
+          font-style: inherit;
+          padding: 0.5em 0.4em;
+          margin-right: 17px;
+        "
+      />
+      <input
+        type="submit"
+        name="account_type"
+        value="Register"
+        style="
+          font-family: 'Times New Roman';
+          font-size: 18px;
+          font-style: inherit;
+          padding: 0.5em 0.2em;
+        "
+      />
+    </div>
+  </form>
 </div>
-{% endblock %} {% block body %}
-<form action="/login_submit" method="post">
-  <div class="username">
-    <label for="username" style="font-size: 25px">Username</label>
-    <input type="text" name="username" id="username" value="" required />
-  </div>
-  <div class="password">
-    <label for="password" style="font-size: 25px">Password</label>
-    <input type="password" name="password" id="password" value="" required />
-  </div>
-  <div class="logbutton">
-    <input
-      type="submit"
-      name="account_type"
-      value="Login"
-      style="
-        font-family: 'Times New Roman';
-        font-size: 18px;
-        font-style: inherit;
-        padding: 0.5em 0.4em;
-        margin-right: 17px;
-      "
-    />
-    <input
-      type="submit"
-      name="account_type"
-      value="Register"
-      style="
-        font-family: 'Times New Roman';
-        font-size: 18px;
-        font-style: inherit;
-        padding: 0.5em 0.2em;
-      "
-    />
-  </div>
-</form>
 {% endblock %}

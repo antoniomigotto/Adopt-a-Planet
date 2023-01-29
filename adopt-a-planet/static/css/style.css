@@ -1,27 +1,61 @@
 body {
-  margin: 0;
-  font-family: sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
+  color: white;
   background-color: black;
+  min-height: 100vh;
 }
 
-.register button {
-  font-size: 16px;
-  font-weight: bold;
-  margin-left: 450px;
-  margin-top: 20px;
+h1 {
+  font-size: 2rem;
+}
+
+.header {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 10vh;
+  max-height: 30vh;
+}
+
+#login-page {
+  display:flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#content {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#content button {
   align-items: center;
   background-color: mediumpurple;
-  padding-top: 20em;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 4px;
-  padding: 10px 40px;
+  border: 2px solid white;
+  border-radius: 0.25rem;
   cursor: pointer;
-  font-size: 30px;
+  flex: auto;
+  font-size: 32px;
+  font-weight: bold;
+  margin: 1.5rem;
+  padding: 2rem;
+
+  transition: opacity 0.05s ease-in 0.0s;
+  transition: padding 0.05s ease-in 0.0s;
 }
 
-.register button:hover {
-  background-color: rebeccapurple;
+#content button:hover {
+  opacity: 50%;
+  padding: 2.25rem;
+}
+
+.username,
+.password {
+  color: white;
 }
 
 .username {
@@ -85,7 +119,7 @@ body {
 }
 
 .planet img {
-  width: 180px;
+  width: 200px;
   margin-right: 0px;
   margin-bottom: 0px;
   display: flex;

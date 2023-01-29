@@ -1,24 +1,23 @@
 body {
-  margin: 0;
-  font-family: sans-serif;
-  background-color: black;
-  color: aqua;
+    margin: 0;
+    font-family: sans-serif;
+    background-color: black;
 }
 
 .register button {
-  font-size: 16px;
-  font-weight: bold;
-  margin-left: 500px;
-  margin-top: 20px;
-  align-items: center;
-  background-color: mediumpurple;
-  padding-top: 20em;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 4px;
-  padding: 10px 40px;
-  cursor: pointer;
-  font-size: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 450px;
+    margin-top: 20px;
+    align-items: center;
+    background-color: mediumpurple;
+    padding-top: 20em;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 40px;
+    cursor: pointer;
+    font-size: 30px;
 }
 
 .register button:hover {
@@ -26,51 +25,89 @@ body {
 }
 
 .username {
-  margin-left: 100px;
-  margin-top: 10px;
+    margin-left: 100px;
+    margin-top: 10px;
 }
 
 .password {
-  margin-left: 100px;
-  margin-top: 20px;
+    margin-left: 100px;
+    margin-top: 20px;
 }
 
 .header {
-  padding-left: 9.5em;
-  display: flex;
-  align-items: center;
-  color: ghostwhite;
-  font-family: "Montserrat", sans-serif;
-  font-size: 24px;
-  padding-top: 3em;
-  background-color: black;
-  font-style: initial;
-  margin-top: 0px;
+    padding-left: 1.5em;
+    display: flex;
+    align-items: center;
+    color: ghostwhite;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    padding-top: 3em;
+    background-color: black;
+    font-style: initial;
+    margin-top: 0px;
 }
 
 .logpage {
-  padding-left: 5.2em;
-  display: flex;
-  align-items: center;
-  color: ghostwhite;
-  font-family: "Montserrat", sans-serif;
-  font-size: 20px;
-  padding-top: 0em;
-  background-color: black;
-  font-style: initial;
-  margin-top: 0px;
-  padding-bottom: 0em;
+    padding-left: 5.2em;
+    display: flex;
+    align-items: center;
+    color: ghostwhite;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    padding-top: 0em;
+    background-color: black;
+    font-style: initial;
+    margin-top: 0px;
+    padding-bottom: 0em;
 }
 
-.images img {
-  width: 200px;
-  margin-left: 0px;
-  margin-bottom: 0px;
-  display: flex;
-  align-items: center;
+.meetplanet {
+    padding-left: 5.2em;
+    display: flex;
+    align-items: center;
+    color: ghostwhite;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    padding-top: 0em;
+    background-color: black;
+    font-style: initial;
+    margin-top: 0px;
+    padding-bottom: 0em;
+}
+
+.saturn img {
+    width: 200px;
+    margin-left: 0px;
+    margin-bottom: 0px;
+    display: flex;
+    align-items: center;
+    float: left;
+}
+
+.planet img {
+    width: 180px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    display: flex;
+    align-items: center;
+    float: right;
 }
 
 .logbutton {
-  margin-left: 100px;
-  margin-top: 20px;
+    margin-left: 100px;
+    margin-top: 20px;
 }
+
+.text {
+    font-size: 20px;
+    color: white;
+}
+
+.outro {
+    font-style: oblique;
+    font-size: 25px;
+    color: white;
+    align: center;
+    margin-left: 250px;
+}
+

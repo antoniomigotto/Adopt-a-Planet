@@ -1,6 +1,4 @@
-{% extends "base.html" %} 
-{% include "header.html" %} 
-{% block body %}
+{% extends "base.html" %} {% include "header.html" %} {% block body %}
 <div id="content">
   {% if logged_in %}
   <div>
@@ -18,6 +16,21 @@
   <div class="text"><p>Information about the planets...</p></div>
   <div class="outro">
     <p>Go ahead and adopt your very own exoplanet right now!</p>
+  </div>
+  <h1>Adopted Planets</h1>
+</div>
+<div class="planet-grid">
+  <div class="planet">
+    <a href="/planet/2"><button>11 Umi b</button></a>
+  </div>
+  <div class="planet">
+    <a href="/planet/76"><button>COCONUTS-2 b</button></a>
+  </div>
+  <div class="planet">
+    <a href="/planet/187"><button>GJ 180 b</button></a>
+  </div>
+  <div class="planet">
+    <a href="/planet/516"><button>HD 12648 b</button></a>
   </div>
 </div>
 {% endblock %}

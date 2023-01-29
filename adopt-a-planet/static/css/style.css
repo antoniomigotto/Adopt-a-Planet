@@ -1,5 +1,4 @@
 body {
-  margin: 0;
   font-family: sans-serif;
   background-color: black;
 }
@@ -22,6 +21,11 @@ body {
 
 .register button:hover {
   background-color: rebeccapurple;
+}
+
+.username,
+.password {
+  color: white;
 }
 
 .username {

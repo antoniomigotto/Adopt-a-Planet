@@ -1,29 +1,23 @@
-{% extends 'base.html' %} {% block body %}
-<div class="saturn">
-  <img src="../static/saturn_r.png" />
-</div>
-<div class="planet">
-  <img src="../static/planet.png" />
-</div>
-<div class="header">
-  <h1>Adopt An ExtraTerrestrial Planet Today!</h1>
-</div>
-{% if logged_in %}
-<div>
-  <a href="{{ url_for('planet_page_editor') }}">
-    <button>Edit Your Planet</button>
-  </a>
-</div>
-{% else %}
-<div class="register">
-  <a href="{{ url_for('login') }}">
-    <button>Start Your Journey</button>
-  </a>
-</div>
-{% endif %}
-<div class="text"><p>Information about the planets...</p></div>
-<div class="outro">
-  <p>Go ahead and adopt your very own exoplanet right now!</p>
+{% extends "base.html" %} 
+{% include "header.html" %} 
+{% block body %}
+<div id="content">
+  {% if logged_in %}
+  <div>
+    <a href="{{ url_for('planet_page_editor') }}">
+      <button>Edit Your Planet</button>
+    </a>
+  </div>
+  {% else %}
+  <div>
+    <a href="{{ url_for('login') }}">
+      <button>Start Your Journey</button>
+    </a>
+  </div>
+  {% endif %}
+  <div class="text"><p>Information about the planets...</p></div>
+  <div class="outro">
+    <p>Go ahead and adopt your very own exoplanet right now!</p>
+  </div>
 </div>
 {% endblock %}
-

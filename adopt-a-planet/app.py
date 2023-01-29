@@ -8,6 +8,7 @@ from flask import (
     session,
 )
 from flask_sqlalchemy import SQLAlchemy
+from csv_reader import *
 
 import os.path
 import json
@@ -24,6 +25,9 @@ class User(db.Model):
     username = db.Column(db.String(32), primary_key=True)
     password = db.Column(db.String(256), nullable=False)
     planet = db.Column(db.Integer)
+
+
+new_id = planet_finder()
 
 
 @app.route("/")
@@ -99,7 +103,42 @@ def planet(planet_id):
 
 @app.route("/editor")
 def planet_page_editor():
-    pass
+    arrays = planet_finder()
+    return render_template(
+        "meet_your_planet.html",
+        PlanetIdentifier=arrays[0],
+        TypeFlag=arrays[1],
+        PlanetaryMassJpt=arrays[2],
+        RadiusJpt=arrays[3],
+        PeriodDays=arrays[4],
+        SemiMajorAxisAU=arrays[5],
+        Eccentricity=arrays[6],
+        PeriastronDeg=arrays[7],
+        LongitudeDeg=arrays[8],
+        AscendingNodeDeg=arrays[9],
+        InclinationDeg=arrays[10],
+        SurfaceTempK=arrays[11],
+        AgeGyr=arrays[12],
+        DiscoveryMethod=arrays[13],
+        DiscoveryYear=arrays[14],
+        LastUpdated=arrays[15],
+        RightAscension=arrays[16],
+        Declination=arrays[17],
+        DistFromSunParsec=arrays[18],
+        HostStarMassSlrMass=arrays[19],
+        HostStarRadiusSlrRad=arrays[20],
+        HostStarMetallicity=arrays[21],
+        HostStarTempK=arrays[22],
+        HostStarAgeGyr=arrays[23],
+        ListsPlanetIsOn=arrays[24],
+    )
+
+
+@app.route("/adopt")
+def adopt():
+    arrays = planet_finder()
+    csv_changer(arrays[26])
+    return render_template("dashboard.html")
 
 
 if __name__ == "__main__":

@@ -24,15 +24,21 @@ app.secret_key = "temporarily here"
 class User(db.Model):
     username = db.Column(db.String(32), primary_key=True)
     password = db.Column(db.String(256), nullable=False)
-    planet = db.Column(db.Integer)
+    planet = db.Column(db.String(256))
 
-
-new_id = planet_finder()
-
+class Planet(db.Model):
+    planet_id = db.Column(db.Integer, primary_key=True)
+    planet_nickname = db.Column(db.String(256))
+    planet_name = db.Column(db.String(256))
+    planet_description = db.Column(db.String(2048))
+    planet_page_background = db.Column(db.String(7))
+    adopter_username = db.Column(db.String(32), primary_key=True)
+    adopter_description = db.Column(db.String(2048))
 
 @app.route("/")
 def dashboard():
     if any(session):
+        print(f'logged_in=True')
         return render_template("dashboard.html", logged_in=True)
     return render_template("dashboard.html", logged_in=False)
 
@@ -60,18 +66,53 @@ def login_submit():
             if user.password != password:
                 return "Incorrect password! Try again."
             session["username"] = user.username
-            return render_template("dashboard.html")
+            return redirect(url_for('dashboard'))
         except:
             return "Username not found! Or something else went wrong, perhaps."
 
     if request.form["account_type"] == "Register":
-        new_user = User(username=username, password=password)
         try:
+            planet = planet_finder()
+            planet_name = planet[0]
+            planet_id = planet[26]
+
+            new_user = User(username=username, password=password, planet=planet_id)
             db.session.add(new_user)
-            print(new_user.username)
             db.session.commit()
-            return "Registering!"
-            # return render_template(url_for('meet_your_planet'))
+
+            new_planet = Planet(planet_id=planet_id, planet_nickname='', planet_name=planet_name, planet_description=f'The {planet_name} planet is {planet[18]} parsecs away from our Sun. It is {planet[3]} times the size of Jupiter while having a mass {planet[2]} times that of Jupiter.', planet_page_background='#000000', adopter_username=username, adopter_description=f'This planet has been adopted by \'{username}\'.')
+            db.session.add(new_planet)
+            db.session.commit()
+
+            return render_template(
+                "meet_your_planet.html",
+                PlanetName=planet[0],
+                TypeFlag=planet[1],
+                PlanetaryMassJpt=planet[2],
+                RadiusJpt=planet[3],
+                PeriodDays=planet[4],
+                SemiMajorAxisAU=planet[5],
+                Eccentricity=planet[6],
+                PeriastronDeg=planet[7],
+                LongitudeDeg=planet[8],
+                AscendingNodeDeg=planet[9],
+                InclinationDeg=planet[10],
+                SurfaceTempK=planet[11],
+                AgeGyr=planet[12],
+                DiscoveryMethod=planet[13],
+                DiscoveryYear=planet[14],
+                LastUpdated=planet[15],
+                RightAscension=planet[16],
+                Declination=planet[17],
+                DistFromSunParsec=planet[18],
+                HostStarMassSlrMass=planet[19],
+                HostStarRadiusSlrRad=planet[20],
+                HostStarMetallicity=planet[21],
+                HostStarTempK=planet[22],
+                HostStarAgeGyr=planet[23],
+                ListsPlanetIsOn=planet[24],
+                identifier=planet_id
+            )
         except:
             return (
                 "This user either already exists or there was an issue with your"
@@ -80,14 +121,10 @@ def login_submit():
     return "How did we get here?"
 
 
-@app.route("/meet_your_planet")
-def meet_your_planet():
-    pass
-
-
 @app.route("/planet/<int:planet_id>")
 def planet(planet_id):
-    pass
+
+    render_template('planet.html')
     # No: 2; Name: 11 Umi b; Num Stars: 1; Discovery Year: 2009; Orbital Period Days: 516.219
     # The exoplanet 11 Umi b was discovered a while back in 2009. It has 1 star in its system, and has a orbital period of 516 days.
 
@@ -103,42 +140,7 @@ def planet(planet_id):
 
 @app.route("/editor")
 def planet_page_editor():
-    arrays = planet_finder()
-    return render_template(
-        "meet_your_planet.html",
-        PlanetIdentifier=arrays[0],
-        TypeFlag=arrays[1],
-        PlanetaryMassJpt=arrays[2],
-        RadiusJpt=arrays[3],
-        PeriodDays=arrays[4],
-        SemiMajorAxisAU=arrays[5],
-        Eccentricity=arrays[6],
-        PeriastronDeg=arrays[7],
-        LongitudeDeg=arrays[8],
-        AscendingNodeDeg=arrays[9],
-        InclinationDeg=arrays[10],
-        SurfaceTempK=arrays[11],
-        AgeGyr=arrays[12],
-        DiscoveryMethod=arrays[13],
-        DiscoveryYear=arrays[14],
-        LastUpdated=arrays[15],
-        RightAscension=arrays[16],
-        Declination=arrays[17],
-        DistFromSunParsec=arrays[18],
-        HostStarMassSlrMass=arrays[19],
-        HostStarRadiusSlrRad=arrays[20],
-        HostStarMetallicity=arrays[21],
-        HostStarTempK=arrays[22],
-        HostStarAgeGyr=arrays[23],
-        ListsPlanetIsOn=arrays[24],
-    )
-
-
-@app.route("/adopt")
-def adopt():
-    arrays = planet_finder()
-    csv_changer(arrays[26])
-    return render_template("dashboard.html")
+    pass
 
 
 if __name__ == "__main__":

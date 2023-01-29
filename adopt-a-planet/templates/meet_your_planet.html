@@ -1,4 +1,7 @@
 {% extends 'base.html' %} {% block body %}
-<div class="meetplanet">
+<div id="meet_planet">
   <h1>Meet your planet</h1>
+  <div>Your planet is {{ PlanetName }}! </div>
+  <button><a href="/planet/{{ identifier }}">Go to Planet</a></button>
 </div>
+{% endblock %}

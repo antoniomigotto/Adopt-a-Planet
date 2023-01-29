@@ -3,10 +3,16 @@ body {
   color: white;
   background-color: black;
   min-height: 100vh;
+  flex-flow: column, nowrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  font-size: 20px;
 }
 
 h1 {
   font-size: 2rem;
+  text-align: center;
 }
 
 .header {
@@ -16,6 +22,7 @@ h1 {
   align-items: center;
   min-height: 10vh;
   max-height: 30vh;
+  flex: auto;
 }
 
 #login-page {
@@ -30,13 +37,14 @@ h1 {
   flex-flow: column nowrap;
   justify-content: space-around;
   align-items: center;
+  flex: auto;
+  gap: 5vh;
 }
 
-#content button {
+button, input[type="submit"] {
   align-items: center;
   background-color: mediumpurple;
-  border: 2px solid white;
-  border-radius: 0.25rem;
+  border-radius: 12px;
   cursor: pointer;
   flex: auto;
   font-size: 32px;
@@ -44,18 +52,11 @@ h1 {
   margin: 1.5rem;
   padding: 2rem;
 
-  transition: opacity 0.05s ease-in 0.0s;
-  transition: padding 0.05s ease-in 0.0s;
+  transition: opacity 0.2s ease-in 0.0s;
 }
 
-#content button:hover {
-  opacity: 50%;
-  padding: 2.25rem;
-}
-
-.username,
-.password {
-  color: white;
+button:hover, input[type="submit"]:hover {
+  opacity: 25%;
 }
 
 .username {
@@ -95,12 +96,12 @@ h1 {
   padding-bottom: 0em;
 }
 
-.meetplanet {
+#meet_planet {
   padding-left: 5.2em;
   display: flex;
+  flex-flow: column nowrap;
   align-items: center;
   color: ghostwhite;
-  font-family: "Montserrat", sans-serif;
   font-size: 20px;
   padding-top: 0em;
   background-color: black;
@@ -109,21 +110,17 @@ h1 {
   padding-bottom: 0em;
 }
 
-.saturn img {
+#saturn img {
   width: 200px;
   margin-left: 0px;
   margin-bottom: 0px;
-  display: flex;
-  align-items: center;
   float: left;
 }
 
-.planet img {
+#some_planet img {
   width: 200px;
   margin-right: 0px;
   margin-bottom: 0px;
-  display: flex;
-  align-items: center;
   float: right;
 }
 
@@ -132,15 +129,19 @@ h1 {
   margin-top: 20px;
 }
 
-.text {
-  font-size: 20px;
-  color: white;
-}
-
 .outro {
   font-style: oblique;
   font-size: 25px;
-  color: white;
-  align: center;
-  margin-left: 250px;
 }
+
+.planet-grid {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.planet {
+  border: 1px solid black;
+}
+

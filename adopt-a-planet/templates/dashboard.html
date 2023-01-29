@@ -1,27 +1,17 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% block body %}
 
-{%  block head %}
+  <div class="header">
+    <h1>Adopt An ExtraTerrestrial Planet Today!</h1>
+  </div>
 
-    <div class = "header">
-        <h1>Adopt An ExtraTerrestrial Planet Today!</h1>
-    </div>
-{% endblock %}
-
-
-
-{%  block body %}
-
-    <div class = "register">
-    <a href = "{{ url_for('login') }}">
-        <button>Start Your Journey</button>
+  <div class="register">
+    <a href="{{ url_for('login') }}">
+      <button>Start Your Journey</button>
     </a>
-    </div>
+  </div>
 
+  <div class="images">
+    <img src="../static/saturn_r.png" />
+  </div>
 
-<div class = "images">
-        <img src="../static/saturn_r.png">
-
-    </div>
-
-
-{% endblock %}  
+{% endblock %}

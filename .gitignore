@@ -7,6 +7,7 @@ adopt-a-planet/__pycache__/
 instance/
 
 .pytest_cache/
+.mypy_cache/
 .coverage
 htmlcov/
 

@@ -1,5 +1,3 @@
-{% extends 'base.html' %} {% block head %}
-<div class="meetplanet">
-  <h1>Meet your planet</h1>
-</div>
-{% endblock %} {% block body %} {% endblock %}
+{% extends "base.html" %} {% block body %} {{PlanetIdentifier}}
+<span><a href="/adopt">adopt</a></span>
+{% endblock %}

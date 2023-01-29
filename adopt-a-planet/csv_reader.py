@@ -1,11 +1,7 @@
-
 import pandas as pd
-
 import csv
 
-
 def planet_finder():
-
     planet = []
     with open("oec.csv") as csvfile:
         input_items = list(csv.reader(csvfile))
@@ -27,15 +23,10 @@ def planet_finder():
 
 def csv_changer(planet_id):
 
-
     df = pd.read_csv("oec.csv")
 
     # updating the column value/data
-    df.loc[int(planet_id), 'WasAdopted'] = 'TRUE'
+    df.loc[int(planet_id), "WasAdopted"] = "TRUE"
 
     # writing into the file
     df.to_csv("oec.csv", index=False)
-
-
-
-

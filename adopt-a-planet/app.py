@@ -1,4 +1,12 @@
-from flask import Flask, render_template, request, redirect, url_for, make_response
+from flask import (
+    Flask,
+    render_template,
+    request,
+    redirect,
+    url_for,
+    make_response,
+    session,
+)
 from flask_sqlalchemy import SQLAlchemy
 
 import os.path
@@ -6,8 +14,10 @@ import json
 
 db = SQLAlchemy()
 app = Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///adoptaplanet.db"
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///adopt-a-planet.db"
 db.init_app(app)
+
+app.secret_key = "temporarily here"
 
 
 class User(db.Model):
@@ -18,7 +28,9 @@ class User(db.Model):
 
 @app.route("/")
 def dashboard():
-    return render_template("dashboard.html")
+    if any(session):
+        return render_template("dashboard.html", logged_in=True)
+    return render_template("dashboard.html", logged_in=False)
 
 
 @app.route("/login")
@@ -43,9 +55,8 @@ def login_submit():
             user = User.query.filter_by(username=username).first()
             if user.password != password:
                 return "Incorrect password! Try again."
-            response = make_response(render_template("dashboard.html"))
-            response.set_cookie("username_cookie", username)
-            return response
+            session["username"] = user.username
+            return render_template("dashboard.html")
         except:
             return "Username not found! Or something else went wrong, perhaps."
 
